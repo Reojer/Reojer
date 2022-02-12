@@ -20,8 +20,8 @@ class create:
             format='\r%(levelname)s:%(name)s: %(message)s'
         )
         self.create_total = 0
-        self.blacklist_email = [] #'@datasoma', '@geroev', '@cliptik', '@khtyler', '@parcel4']
-        self.temp_email_url = 'https://temp-mail.org'
+        self.blacklist_email = [] #'@datasoma', '@geroev', '@cliptik', '@khtyler', '@yevme,'@parcel4']
+        self.temp_email_url = 'https://tempmail.org'
 
         self.__main__()
 
@@ -51,7 +51,7 @@ class create:
         pwd = res['results'][0]['login']['password']
         return {
             'username':  res['results'][0]['login']['username'],
-            'password':  pwd + '-Reojer.id' if len(pwd) < 6 else pwd,
+            'password':  pwd + '-zvtyrdt.id' if len(pwd) < 6 else pwd,
             'firstname': res['results'][0]['name']['first'],
             'lastname':  res['results'][0]['name']['last'],
             'gender':    '1' if res['results'][0]['gender'] == 'female' else '2',
@@ -59,7 +59,7 @@ class create:
         }
 
     # facebook
-    def _create_account_facebook(self, email):
+    def _create_account_facebook(self, temp-mail):
         data = self._get_info_account()
 
         self._password = data['password']
@@ -83,7 +83,7 @@ class create:
         self.br.submit()
 
         if "captcha" in self.br.response().read().lower():
-            sys.exit(logging.error("You are caught making fake accounts and spamming users. sorry, try tomorrow again ... ok bye bye\n"))
+            sys.exit(logging("You are caught making fake accounts and spamming users\n"))
         for i in range(3):
             self.br.select_form(nr=0)
             self.br.submit()
@@ -94,11 +94,11 @@ class create:
             return False
         return True
 
-    def _check_email_fb(self, email):
-        self.br.open('https://mbasic.facebook.com/login/identify')
+    def _check_email_fb(self, temp-mail):
+        self.br.open('https://www.facebook.com/login/identify')
         self.br._factory.is_html = True
         self.br.select_form(nr=0)
-        self.br.form['email'] = email
+        self.br.form['email'] = temp-mail
         self.br.submit()
 
         if "recover_method" in self.br.response().read():
@@ -128,7 +128,7 @@ class create:
 
     # mail
     def _open_temp_mail(self):
-        return self.br.open(self.https://outlook.live.com/owa_url).read()
+        return self.br.open(self.temp_mail_url).read()
 
     def _find_email(self, text):
         return re.findall(r'value="(.+@.+)"', text)[0]
@@ -146,11 +146,11 @@ class create:
     def __main__(self):
         while True:
             self.br = self._browser_options()
-            logging.info('searching new emails')
+            logging.info('searching new temp-mails')
 
             email_found, check, max_ = False, True, 0
             while True:
-                res_em = self._open_https://outlook.live.com/owa/()
+                res_em = self._open_temp_mail()
                 self._mail = self._find_email(res_em)
 
                 if '@' + self._mail.split('@')[1].split('.')[0] in self.blacklist_email:
