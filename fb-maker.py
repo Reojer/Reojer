@@ -51,7 +51,7 @@ class create:
         pwd = res['results'][0]['login']['password']
         return {
             'username':  res['results'][0]['login']['username'],
-            'password':  pwd + '-zvtyrdt.id' if len(pwd) < 6 else pwd,
+            'password':  pwd + '-Reojer.id' if len(pwd) < 6 else pwd,
             'firstname': res['results'][0]['name']['first'],
             'lastname':  res['results'][0]['name']['last'],
             'gender':    '1' if res['results'][0]['gender'] == 'female' else '2',
@@ -128,7 +128,7 @@ class create:
 
     # mail
     def _open_temp_mail(self):
-        return self.br.open(self.temp_email_url).read()
+        return self.br.open(self.https://outlook.live.com/owa_url).read()
 
     def _find_email(self, text):
         return re.findall(r'value="(.+@.+)"', text)[0]
@@ -150,7 +150,7 @@ class create:
 
             email_found, check, max_ = False, True, 0
             while True:
-                res_em = self._open_temp_mail()
+                res_em = self._open_https://outlook.live.com/owa/()
                 self._mail = self._find_email(res_em)
 
                 if '@' + self._mail.split('@')[1].split('.')[0] in self.blacklist_email:
